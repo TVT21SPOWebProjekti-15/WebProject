@@ -1,24 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react';
 
 function App() {
+
+  const [output, setOutput] = useState("")
+
+  function setText(e){
+    e.preventDefault()
+    setOutput(document.getElementById("username").value)
+  }
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form action="" onSubmit={setText}>
+        <input id='username' type="text"/>
+        <button onClick={setText}>ok</button>
+        <label htmlFor="">{output}</label>
+      </form>
     </div>
   );
 }
