@@ -1,24 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 function App() {
+
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+
+  function credentialsAsRequested(){
+
+    setUsername(document.getElementById("usernameInput").value)
+
+    const formData = new FormData();
+    formData.append('username', username)
+    formData.append('password', password)
+
+    axios.post('http://localhost:8080/register', formData)
+      .then(response => localStorage.setItem("token", response.data))
+      .catch(e=>console.log(e.message))
+  }
+
+  function registerUser(e){
+    e.preventDefault()
+    credentialsAsRequested()
+    console.log(username)
+  }
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form action="" onSubmit={registerUser}>
+        <input id='usernameInput' type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
+        <button onClick={registerUser}>k</button>
+        <label id='asd'></label>
+      </form>
     </div>
   );
 }
