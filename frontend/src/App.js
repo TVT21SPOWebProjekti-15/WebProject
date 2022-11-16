@@ -10,6 +10,7 @@ function App() {
   function credentialsAsRequested(){
 
     setUsername(document.getElementById("usernameInput").value)
+    setPassword(document.getElementById("passwordInput").value)
 
     const formData = new FormData();
     formData.append('username', username)
@@ -23,15 +24,20 @@ function App() {
   function registerUser(e){
     e.preventDefault()
     credentialsAsRequested()
-    console.log(username)
   }
   
   return (
     <div className="App">
       <form action="" onSubmit={registerUser}>
+        <div>
+        <label>Nimi</label>
         <input id='usernameInput' type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
+        </div>
+        <div>
+        <label>Salasana</label>
+        <input id='passwordInput' type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+        </div>
         <button onClick={registerUser}>k</button>
-        <label id='asd'></label>
       </form>
     </div>
   );

@@ -11,8 +11,8 @@ public class SecurityRestApi {
 	UserRepository userRepo;
 
     @PostMapping("register")
-	public void init(){
-        System.out.println("Tämä printtaa backendin kautta");
-        //userRepo.save(new User(0L, ));
+	public void init(String username, String password){
+        userRepo.save(new User(username, password));
+        System.out.println(username + " " + password);
 	}
 }
