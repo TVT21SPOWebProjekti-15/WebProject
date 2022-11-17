@@ -25,11 +25,7 @@ class Login extends Component {
     }
   };
 
-  handleClick = e => {
-    e.preventDefault();
 
-    alert("Goes to registration page");
-  };
 
   render() {
     return (
@@ -38,7 +34,7 @@ class Login extends Component {
         <form className="form" onSubmit={this.handleSubmit}>
           <div className="input-group">
             <label htmlFor="username">Username</label>
-            <input type="username" name="username"/>
+            <input type="text" name="username"/>
           </div>
           <div className="input-group">
             <label htmlFor="password">Password</label>
