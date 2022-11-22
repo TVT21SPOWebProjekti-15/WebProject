@@ -9,7 +9,8 @@ export default function JussinLogin() {
 
     function credentialsAsRequested() {
 
-        setUsername(document.getElementById("idInput").value)
+        setUsername(document.getElementById("usernameInput").value)
+        setPassword(document.getElementById("passwordInput").value)
 
         const formData = new FormData();
         formData.append('id', id)
@@ -30,7 +31,12 @@ export default function JussinLogin() {
         <>
             <div>
                 <form>
-                    <input id='idInput' />
+                    <div>
+                        <input id='usernameInput' />
+                    </div>
+                    <div>
+                        <input id='passwordInput' />
+                    </div>
                     <button onClick={showData}>k</button>
                 </form>
             </div>
