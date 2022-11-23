@@ -1,7 +1,7 @@
 import './App.css';
 import {Route, Routes} from 'react-router-dom';
 import Register from './components/Register';
-import Login from './components/Login';
+//import Login from './components/Login';
 import JussinLogin from './components/JussinLogin';
 import MainSite from './components/MainSite';
 
