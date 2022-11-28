@@ -2,7 +2,8 @@ import React, {useState} from 'react'
 import "./register.css"
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import iceland from './images/iceland-g207af6228_1920'
+
+
 
 export default function Register() {
     
@@ -49,26 +50,28 @@ export default function Register() {
       };
 
   return (
+    <body className='Registerbody'>
       <div className="Register">
-          <form className="form" onSubmit={handleSubmit}>
-              <div className="input-group">
-                  <label htmlFor="username">Username</label>
-                  <input id='usernameInput' type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
-              </div>
-              <div className="input-group">
-                  <label htmlFor="password">Password</label>
-                  <input id='passwordInput' type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-              </div>
-              <div className="input-group">
-                  <label htmlFor="password2">Password</label>
-                  <input id="password2" type="password" name="password2"/>
-              </div>
-              <div className='Registerandlogin'>
-              <button className="primary">Register</button>
-              <Link className="link" to='/'>Back to Login</Link>
-              <img className='ideland' src=''></img>
-              </div>
-          </form>
+        <form className="form" onSubmit={handleSubmit}>
+          <div className="input-group">
+            <label htmlFor="username">Username</label>
+            <input id='usernameInput' type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+          </div>
+          <div className="input-group">
+            <label htmlFor="password">Password</label>
+            <input id='passwordInput' type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          </div>
+          <div className="input-group">
+            <label htmlFor="password2">Password</label>
+            <input id="password2" type="password" name="password2" />
+          </div>
+          <div className='Registerandlogin'>
+            <button className="primary">Register</button>
+            <Link className="link" to='/'>Back to Login</Link>
+          </div>
+        </form>
       </div>
+    </body>
+      
   )
 }

@@ -1,11 +1,120 @@
-div {
-    margin: 10px;
+/*.Register {
+    background-image: url(../images/iceland.jpg);
+    
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
     display: flex;
     justify-content: center;
-}
-
-label {
-    margin: 10px;
     
 }
 
+.form {
+    background-color: white;
+}
+
+.link {
+    margin: auto;
+}
+
+.input-group {
+    margin: 20px;
+    padding: 5px;
+}
+
+
+html {
+    height: 100%;
+}
+
+body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../images/iceland.jpg);
+}
+*/
+
+
+.Registerbody{
+    background-image: url(../images/iceland.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.75em;
+    
+}
+
+.Register {
+    background-color: white;
+    width: 30%;
+    height: 40%;
+    position: relative;
+    border-radius: 1em;
+    box-shadow: 0 0.188em 1.550em rgb(156, 156, 156);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+input {
+    border: none;
+    background-color: rgb(229, 226, 226);
+    width: 80%;
+    height: 5vw;
+    border-radius: 0.25em;
+    text-align: center;
+    padding: 2em;
+    font-size: 0.75em;
+}
+
+input:focus {
+    outline-color: rgb(32, 177, 255);
+}
+
+button {
+    width: 40%;
+    height: 3em;
+    background-color: rgb(32, 177, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    border-radius: 0.25em;
+    cursor: pointer;
+}
+
+
+    
+
+
+
+@media only screen and (min-device-width: 37em) {
+    .Registerbody {
+        font-size: 1em;
+    }
+
+    .Register {
+        width: 30%;
+        height: 40%;
+    }
+}
+
+@media only screen and (min-device-width: 64em) {
+    .Registerbody {
+        font-size: 1.25em;
+    }
+
+    .Register {
+        width: 40%;
+        height: 65%;
+    }
+}
