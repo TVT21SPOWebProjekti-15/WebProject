@@ -1,23 +1,20 @@
 import './App.css';
-import React, { useState } from 'react';
+import {Route, Routes} from 'react-router-dom';
+import Register from './components/Register';
+//import Login from './components/Login';
+import JussinLogin from './components/JussinLogin';
+import MainSite from './components/MainSite';
 
 function App() {
-
-  const [output, setOutput] = useState("")
-
-  function setText(e){
-    e.preventDefault()
-    setOutput(document.getElementById("username").value)
-  }
   
   return (
-    <div className="App">
-      <form action="" onSubmit={setText}>
-        <input id='username' type="text"/>
-        <button onClick={setText}>ok</button>
-        <label htmlFor="">{output}</label>
-      </form>
-    </div>
+      <div className="App">
+        <Routes>
+          <Route path='/login' element={<JussinLogin/>}/>
+          <Route path='/Register' element={<Register/>}/>
+          <Route path='/main' element={<MainSite/>}/>
+        </Routes>
+      </div>
   );
 }
 
