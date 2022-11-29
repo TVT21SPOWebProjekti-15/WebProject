@@ -64,7 +64,7 @@ export default function Register() {
               </div>
               <button className="primary">Register</button>
           </form>
-          <Link className="link" to='/'>Back to Login</Link>
+          <Link className="link" to='/login'>Back to Login</Link>
       </div>
   )
 }
