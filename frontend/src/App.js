@@ -1,8 +1,13 @@
+
 import React from 'react';
 import {Line} from "react-chartjs-2";
 import {Chart as ChartJS} from "chart.js/auto";
 import tempData from "./data/testData.json";
 import tempData2 from "./data/testData2.json";
+import './App.css';
+import {Route, Routes} from 'react-router-dom';
+import Register from './components/Register';
+import Login from './components/Login';
 
 function App() {
   
@@ -65,6 +70,13 @@ function App() {
         </p>
       </div>
     </div>
+//       <div className="App">
+//         <Routes>
+//           <Route path='/' element={<Login/>}/>
+//           <Route path='/Register' element={<Register/>}/>
+//         </Routes>
+//       </div>
+// >>>>>>> origin/issue#1
   );
 }
 
