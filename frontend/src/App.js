@@ -44,7 +44,7 @@ function App() {
       },
       title: {
         display: true,
-        text: "Test temp",
+        text: "Test temp1",
       },
     },
     scales: {
