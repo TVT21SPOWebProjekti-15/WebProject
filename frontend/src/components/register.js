@@ -51,7 +51,7 @@ export default function Register() {
 
   return (
     <body className='Registerbody'>
-      <div className="Register">
+      <div>
         <form className="form" onSubmit={handleSubmit}>
           <div className="input-group">
             <label htmlFor="username">Username</label>
