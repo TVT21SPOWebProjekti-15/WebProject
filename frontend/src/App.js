@@ -8,6 +8,7 @@ import './App.css';
 import {Route, Routes} from 'react-router-dom';
 import Register from './components/Register';
 import Login from './components/Login';
+import DataFetching from './components/DataFetching';
 
 function App() {
   
@@ -64,12 +65,16 @@ function App() {
   return (
        <div className="App">
       <div style={{ width: "600px" }}>
-        <Line options={options} data={data} />
+        {/* <Line options={options} data={data} /> */}
+        <div>
+        <DataFetching/>
+        </div>
         <p>
           <a href="https://www.metoffice.gov.uk/hadobs/hadcrut5/">Link</a> to the data sources.
         </p>
       </div>
     </div>
+// issue 1 login esimerkki 29.11
 //       <div className="App">
 //         <Routes>
 //           <Route path='/' element={<Login/>}/>

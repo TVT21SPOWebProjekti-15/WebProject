@@ -15,4 +15,6 @@ public class SecurityRestApi {
         userRepo.save(new User(username, password));
         System.out.println(username + " " + password + " saved to database");
 	}
+    
+    
 }
