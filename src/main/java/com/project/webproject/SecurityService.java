@@ -22,26 +22,18 @@ public class SecurityService {
     @Value("${jwt.secret}")
     private String jwtKey;
 
-    public User register(String username, String password) {
+    public User register(String username, String password){
+        User u = new User(username, enc.encode(password));
+        userRepo.save(u);
+        System.out.println(username + " " + password);
 
-        if (!userRepo.existsById(username)) {
-
-            User u = new User(username, enc.encode(password));
-            userRepo.save(u);
-            System.out.println(username + " " + password);
-
-            return u;
-        }
-
-        System.out.println("Username taken");
-        return null;
+        return u;
     }
 
     public String login(String username, String password) {
         User u = userRepo.findById(username).orElse(null);
 
         if (u == null || !enc.matches(password, u.getpassword())) {
-            System.out.println("User not found");
             return null;
         }
         System.out.println(u.getName() + " " + u.getpassword());
