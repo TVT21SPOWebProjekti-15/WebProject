@@ -1,7 +1,7 @@
 import './App.css'
 import {Route, Routes} from 'react-router-dom'
-import Register from './components/Register'
-import Login from './components/Login'
+import Register from './components/register'
+import Login from './components/login'
 import MainSite from './components/MainSite'
 import Delete from './components/Delete'
 
@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Login/>}/>
           <Route path='/login' element={<Login/>}/>
-          <Route path='/Register' element={<Register/>}/>
+          <Route path='/register' element={<Register/>}/>
           <Route path='/main' element={<MainSite/>}/>
           <Route path='/delete' element={<Delete/>}/>
         </Routes>
