@@ -40,6 +40,19 @@ public class SecurityRestApi {
             return new ResponseEntity<>(token, HttpStatus.OK);
         }
     
+    @PostMapping("delete")
+    public ResponseEntity<String> delete(
+        @RequestParam String username,
+        @RequestParam String password)
+        {
+            String token = service.delete(username, password);
+
+            if (token == null) {
+                return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+            }
+            return new ResponseEntity<>(token, HttpStatus.OK);
+        }
+
     @GetMapping("private")
     public ResponseEntity<String> getPrivateData(@RequestHeader("Authorization")String bearer){
 
