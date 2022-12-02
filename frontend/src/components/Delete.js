@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import './Delete.css'
 
 export default function Delete() {
 
@@ -56,19 +57,25 @@ export default function Delete() {
     };
 
     return (
-        <div className="Delete">
-            <form className="form" onSubmit={handleSubmit}>
-                <div className="input-group">
-                    <label htmlFor="username">Username</label>
-                    <input type="text" name="username" value={username} onChange={e => setUsername(e.target.value)} />
-                </div>
-                <div className="input-group">
-                    <label htmlFor="password">Password</label>
-                    <input type="password" name="password" value={password} onChange={e => setPassword(e.target.value)} />
-                </div>
-                <button className="primary">Delete user</button>
-            </form>
-            <Link className="link" to='/main'>Back to homepage</Link>
-        </div>
+        <body className="Deletebody">
+            <div>
+                <form className="form" onSubmit={handleSubmit}>
+                    <form className="group">
+                        <form>
+                            <label htmlFor="username">Username</label>
+                            <input type="text" name="username" value={username} onChange={e => setUsername(e.target.value)} />
+                        </form>
+                        <form>
+                            <label htmlFor="password">Password</label>
+                            <input type="password" name="password" value={password} onChange={e => setPassword(e.target.value)} />
+                        </form>
+                    </form>
+                    <div>
+                        <button className="primary">Delete user</button>
+                        <Link className="link" to='/main'>Back to homepage</Link>
+                    </div>
+                </form>
+            </div>
+        </body>
     );
 }
