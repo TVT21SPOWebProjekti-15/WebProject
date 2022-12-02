@@ -60,16 +60,14 @@ export default function Delete() {
         <body className="Deletebody">
             <div>
                 <form className="form" onSubmit={handleSubmit}>
-                    <form className="group">
-                        <form>
-                            <label htmlFor="username">Username</label>
-                            <input type="text" name="username" value={username} onChange={e => setUsername(e.target.value)} />
-                        </form>
-                        <form>
-                            <label htmlFor="password">Password</label>
-                            <input type="password" name="password" value={password} onChange={e => setPassword(e.target.value)} />
-                        </form>
-                    </form>
+                    <div>
+                        <label htmlFor="username">Username</label>
+                        <input type="text" name="username" value={username} onChange={e => setUsername(e.target.value)} />
+                    </div>
+                    <div>
+                        <label htmlFor="password">Password</label>
+                        <input type="password" name="password" value={password} onChange={e => setPassword(e.target.value)} />
+                    </div>
                     <div>
                         <button className="primary">Delete user</button>
                         <Link className="link" to='/main'>Back to homepage</Link>

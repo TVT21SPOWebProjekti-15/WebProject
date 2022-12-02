@@ -13,48 +13,45 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 @RestController
 public class SecurityRestApi {
-
+    
     @Autowired
     SecurityService service;
 
     @PostMapping("register")
     public ResponseEntity<String> register(
-        @RequestParam String username,
-        @RequestParam String password)
-        {
-            User u = service.register(username, password);
+            @RequestParam String username,
+            @RequestParam String password) {
+        User u = service.register(username, password);
 
-            return new ResponseEntity<>(u.getName(), HttpStatus.OK);
-        }
+        return new ResponseEntity<>(u.getName(), HttpStatus.OK);
+    }
 
     @PostMapping("login")
     public ResponseEntity<String> login(
-        @RequestParam String username,
-        @RequestParam String password)
-        {
-            String token = service.login(username, password);
+            @RequestParam String username,
+            @RequestParam String password) {
+        String token = service.login(username, password);
 
-            if (token == null) {
-                return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-            }
-            return new ResponseEntity<>(token, HttpStatus.OK);
+        if (token == null) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
-    
+        return new ResponseEntity<>(token, HttpStatus.OK);
+    }
+
     @PostMapping("delete")
     public ResponseEntity<String> delete(
-        @RequestParam String username,
-        @RequestParam String password)
-        {
-            String token = service.delete(username, password);
+            @RequestParam String username,
+            @RequestParam String password) {
+        String token = service.delete(username, password);
 
-            if (token == null) {
-                return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-            }
-            return new ResponseEntity<>(token, HttpStatus.OK);
+        if (token == null) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
+        return new ResponseEntity<>(token, HttpStatus.OK);
+    }
 
     @GetMapping("private")
-    public ResponseEntity<String> getPrivateData(@RequestHeader("Authorization")String bearer){
+    public ResponseEntity<String> getPrivateData(@RequestHeader("Authorization") String bearer) {
 
         if (bearer.startsWith("bearer")) {
             String token = bearer.split(" ")[1];

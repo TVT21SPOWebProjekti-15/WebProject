@@ -50,20 +50,18 @@ export default function Register() {
     <body className='Registerbody'>
       <div>
         <form className="form" onSubmit={handleSubmit}>
-          <form className='group'>
-            <form>
+          <div>
               <label htmlFor="username">Username</label>
               <input id='usernameInput' type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
-            </form>
-            <form>
+          </div>
+          <div>
               <label htmlFor="password">Password</label>
               <input id='passwordInput' type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            </form>
-            <form>
+          </div>
+          <div>
               <label htmlFor="password2">Password</label>
               <input id="password2" type="password" name="password2" />
-            </form>
-          </form>
+          </div>
           <div className='Registerandlogin'>
             <button className="primary">Register</button>
             <Link className="link" to='/login'>Back to Login</Link>
