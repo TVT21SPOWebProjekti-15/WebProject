@@ -48,8 +48,8 @@ button {
     margin-top: 1em;
 }
 
-.group {
-    display: inline-block;
+.input-group {
+    display: block;
     text-align: right;
 }
 
