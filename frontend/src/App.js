@@ -10,6 +10,8 @@ import Register from './components/Register';
 import DataFetching from './components/DataFetching';
 import JussinLogin from './components/JussinLogin';
 import MainSite from './components/MainSite';
+import Navbar from './components/NavBar';
+import Info from './components/Info';
 
 function App() {
   
@@ -65,24 +67,39 @@ function App() {
 
   return (
 
-       <div className="App">
-      <div style={{ width: "600px" }}>
-        {/* <Line options={options} data={data} /> */}
-        <div>
-        <DataFetching/>
-        </div>
-        <p>
-          <a href="https://www.metoffice.gov.uk/hadobs/hadcrut5/">Link</a> to the data sources.
-        </p>
+    <>
+    <Navbar />
+    <div className='container'>
+      <Routes>
+        <Route path="/JussinLogin" element={<JussinLogin />}/>
+        <Route path="/Register" element={<Register />}/>
+        <Route path="/DataFetcing" element={<DataFetching />}/>
+        <Route path="/Info" element={<Info />}/>
+        
+      </Routes>
 
-      {/* <div className="App">
-        <Routes>
-          <Route path='/login' element={<JussinLogin/>}/>
-          <Route path='/Register' element={<Register/>}/>
-          <Route path='/main' element={<MainSite/>}/>
-        </Routes> */}
-      </div>
     </div>
+    </> 
+
+      //  <div className="App">
+      // <div style={{ width: "600px" }}>
+
+         //<Line options={options} data={data} /> 
+        
+        
+        //  <Route path='/DataFetching' element={<DataFetching/>}/>
+        // <Route path='/login' element={<JussinLogin/>}/> 
+        
+        
+
+      //  <div className="App">
+      //   <Routes>
+      //     <Route path='/login' element={<JussinLogin/>}/>
+      //     <Route path='/Register' element={<Register/>}/>
+      //     <Route path='/main' element={<MainSite/>}/>
+      //   </Routes> 
+    //   </div>
+    // </div>
 // issue 1 login esimerkki 29.11
 //       <div className="App">
 //         <Routes>
