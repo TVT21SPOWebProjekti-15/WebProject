@@ -17,11 +17,11 @@ export default function Info() {
   
     useEffect(()=>{
       async function getInfot(){
-        const results = await axios.get('http://localhost:8080/info')
+        const results = await axios.get('http://localhost:8080/Info')
         
         console.log(results);
        
-        //console.log(results.data);
+        console.log(results.data);
         setInfot(results.data.infot);
       }
       getInfot();
