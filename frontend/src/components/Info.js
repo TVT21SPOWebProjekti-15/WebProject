@@ -13,26 +13,40 @@ export default function Info() {
   //   }
   //   getA();
   // },[])
-  const [Data1,setData1] = useState([])
+  const [infot, setInfot] = useState([])
+  
     useEffect(()=>{
-        axios
-        .get('http://localhost:8080/info')
-        .then(res =>{
-            console.log(res)
-            setData1(res.data)
-        })
-        .catch(err =>{
-            console.log(err)
-        })
-    })
+      async function getInfot(){
+        const results = await axios.get('http://localhost:8080/info')
+        
+        console.log(results);
+       
+        //console.log(results.data);
+        setInfot(results.data.infot);
+      }
+      getInfot();
+      
+    },[]);
+    //     axios
+    //     .get('http://localhost:8080/info')
+    //     .then(res =>{
+    //         console.log(res)
+    //         setData1(res.data)
+    //     })
+    //     .catch(err =>{
+    //         console.log(err)
+    //     })
+    // })
   
 
   return (
     <div>
-      <p>
-        moi
-      </p>
+      moi 
+      {infot}
     </div>
+    // <div>
+    //   {infot}
+    // </div>
 
   )
 }
