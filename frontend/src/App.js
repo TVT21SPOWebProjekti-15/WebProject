@@ -17,7 +17,7 @@ function App() {
   return (
     <>
       {/* {location.pathname === '/login' ? null : <Navbar />} */}
-      <Navbar />
+      <Navbar/>
       <div className='container'>
         <Routes>
           <Route path='/' element={<Login />} />
