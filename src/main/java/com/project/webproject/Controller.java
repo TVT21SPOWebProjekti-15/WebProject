@@ -24,4 +24,52 @@ public ResponseEntity<List<Info>> GetAllInfo(){
     return new ResponseEntity<>(info,HttpStatus.OK);
     
 }
+@CrossOrigin (origins = "*")
+@GetMapping (path = "/AnnualNorthern")
+public ResponseEntity<List<Info>> GetAnnualNorhern(){
+    List<Info> info =jdbcTemplate.query("SELECT * FROM anomalies_annual_northern",new BeanPropertyRowMapper(Info.class));
+
+    return new ResponseEntity<>(info,HttpStatus.OK);
+    
+}
+@CrossOrigin (origins = "*")
+@GetMapping (path = "/AnnualSouthern")
+public ResponseEntity<List<Info>> GetAnnualSouthern(){
+    List<Info> info =jdbcTemplate.query("SELECT * FROM anomalies_annual_southern",new BeanPropertyRowMapper(Info.class));
+
+    return new ResponseEntity<>(info,HttpStatus.OK);
+    
+}
+@CrossOrigin (origins = "*")
+@GetMapping (path = "/MonthlyGlobal")
+public ResponseEntity<List<Info>> GetMonthlyGlobal(){
+    List<Info> info =jdbcTemplate.query("SELECT * FROM anomalies_monthly_global",new BeanPropertyRowMapper(Info.class));
+
+    return new ResponseEntity<>(info,HttpStatus.OK);
+    
+}
+@CrossOrigin (origins = "*")
+@GetMapping (path = "/MonthlyNorthern")
+public ResponseEntity<List<Info>> GetMonthlyNorthern(){
+    List<Info> info =jdbcTemplate.query("SELECT * FROM anomalies_monthly_northern",new BeanPropertyRowMapper(Info.class));
+
+    return new ResponseEntity<>(info,HttpStatus.OK);
+    
+}
+@CrossOrigin (origins = "*")
+@GetMapping (path = "/MonthlySouthern")
+public ResponseEntity<List<Info>> GetMonthlySouthern(){
+    List<Info> info =jdbcTemplate.query("SELECT * FROM anomalies_monthly_southern",new BeanPropertyRowMapper(Info.class));
+
+    return new ResponseEntity<>(info,HttpStatus.OK);
+    
+}
+@CrossOrigin (origins = "*")
+@GetMapping (path = "/Reconstruction")
+public ResponseEntity<List<Info>> GetReconstruction(){
+    List<Info> info =jdbcTemplate.query("SELECT * FROM temperature_reconstruction",new BeanPropertyRowMapper(Info.class));
+
+    return new ResponseEntity<>(info,HttpStatus.OK);
+    
+}
 }

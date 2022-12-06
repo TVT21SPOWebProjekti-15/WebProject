@@ -1,7 +1,7 @@
 package com.project.webproject;
 
 public class Info {
-    String Year;
+    String Time;
     String Anomaly;
     String Lower_confidence_limit;
     String Upper_confidence_limit;
@@ -9,19 +9,19 @@ public class Info {
     public Info() {
     }
 
-    public Info(String Year, String Anomaly, String Lower_confidence_limit, String Upper_confidence_limit) {
-        this.Year = Year;
+    public Info(String Time, String Anomaly, String Lower_confidence_limit, String Upper_confidence_limit) {
+        this.Time = Time;
         this.Anomaly = Anomaly;
         this.Lower_confidence_limit = Lower_confidence_limit;
         this.Upper_confidence_limit = Upper_confidence_limit;
     }
 
-    public String getYear() {
-        return this.Year;
+    public String getTime() {
+        return this.Time;
     }
 
-    public void setYear(String Year) {
-        this.Year = Year;
+    public void setTime(String Time) {
+        this.Time = Time;
     }
 
     public String getAnomaly() {

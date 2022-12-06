@@ -9,6 +9,7 @@ import Register from './components/register'
 import Login from './components/login'
 import MainSite from './components/MainSite'
 import Delete from './components/Delete'
+import Info from './components/Info'
 import {useLocation} from 'react'
 
 
@@ -29,6 +30,7 @@ function App() {
           <Route path='/UserView' element={<UserView />} />
           <Route path='/main' element={<MainSite />} />
           <Route path='/delete' element={<Delete />} />
+          <Route path='/Info' element={<Info />} />
         </Routes>
       </div>
     </>

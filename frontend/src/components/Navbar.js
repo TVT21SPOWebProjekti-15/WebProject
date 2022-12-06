@@ -28,6 +28,9 @@ export default function Navbar() {
             <li class="nav-item">
               <Link className="nav-link" to="/delete">Delete user</Link>
             </li>
+            <li class="nav-item">
+              <Link className="nav-link" to="/Info">Info</Link>
+            </li>
           </ul>
         </div>
       </div>
