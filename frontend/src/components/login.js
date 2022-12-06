@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import "./login.css"
 
 export default function Login() {
 
@@ -34,7 +35,7 @@ export default function Login() {
         } else {
             if (access != null) {
                 console.log("Success!")
-                navigate('/main', { replace: true })
+                navigate('/Home', { replace: true })
             }
             else {
                 alert("Invalid credentials: are you sure this user exists?")
@@ -43,19 +44,23 @@ export default function Login() {
     };
 
     return (
-        <div className="Login">
-            <form className="form" onSubmit={handleSubmit}>
-                <div className="input-group">
-                    <label htmlFor="username">Username</label>
-                    <input type="text" name="username" value={username} onChange={e => setUsername(e.target.value)} />
-                </div>
-                <div className="input-group">
-                    <label htmlFor="password">Password</label>
-                    <input type="password" name="password" value={password} onChange={e => setPassword(e.target.value)} />
-                </div>
-                <button className="primary">Login</button>
-            </form>
-            <Link className="link" to='/register'>Register</Link>
-        </div>
+        <body className="Loginbody">
+            <div>
+                <form className="form" onSubmit={handleSubmit}>
+                    <div className="input-group">
+                        <label htmlFor="username">Username</label>
+                        <input type="text" name="username" value={username} onChange={e => setUsername(e.target.value)} />
+                    </div>
+                    <div className="input-group">
+                        <label htmlFor="password">Password</label>
+                        <input type="password" name="password" value={password} onChange={e => setPassword(e.target.value)} />
+                    </div>
+                    <div>
+                        <button className="primary">Login</button>
+                        <Link className="link" to='/register'>Register</Link>
+                    </div>
+                </form>
+            </div>
+        </body>
     );
 }

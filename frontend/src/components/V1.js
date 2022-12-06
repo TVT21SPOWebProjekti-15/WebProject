@@ -1,10 +1,11 @@
 import React from 'react';
 import {Line} from "react-chartjs-2";
 import {Chart as ChartJS} from "chart.js/auto";
-import tempData from "./data/testData.json";
-import tempData2 from "./data/testData2.json";
+import tempData from "../data/testData.json";
+import tempData2 from "../data/testData2.json";
 
-function App() {
+
+export default function V1() {
   
   const data = {
     labels: (tempData, tempData2).map(y=> y.time),
@@ -38,6 +39,7 @@ function App() {
 
   const options = {
     responsive: true,
+    // maintainAspectRatio: true,
     plugins: {
       legend: {
         position: "top",
@@ -57,13 +59,13 @@ function App() {
   };
 
   return (
-       <div className="App">
-      <div style={{ width: "600px" }}>
-        <Line options={options} data={data} />
-        <p>
-          <a href="https://www.metoffice.gov.uk/hadobs/hadcrut5/">Link</a> to the data sources.
-        </p>
-      </div>
-    </div>
+    <div className="chart">
+        <div style={{ width: "600px" }}>
+          <Line options={options} data={data} />
+          <p>
+            <a href="https://www.metoffice.gov.uk/hadobs/hadcrut5/">Link</a> to the data sources.
+          </p>
+        </div>
+    </div >
   );
 }

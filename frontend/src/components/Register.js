@@ -1,12 +1,13 @@
 import React, {useState} from 'react'
 import "../App.css"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 export default function Register() {
     
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+  const navigate = useNavigate()
 
   function credentialsAsRequested() {
 
@@ -41,9 +42,7 @@ export default function Register() {
         ) {
           credentialsAsRequested()
           alert("Successfully registered user")
-          e.target.username.value = ""
-          e.target.password.value = ""
-          e.target.password2.value = ""
+          navigate('/login', { replace: true })
         } 
       };
 
@@ -64,7 +63,7 @@ export default function Register() {
               </div>
               <button className="primary">Register</button>
           </form>
-          <Link className="link" to='/'>Back to Login</Link>
+          <Link className="link" to='/login'>Back to Login</Link>
       </div>
   )
 }
