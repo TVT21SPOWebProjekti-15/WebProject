@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Line } from 'react-chartjs-2';
+import {DateTime} from 'luxon'
 
 
 
@@ -18,6 +19,7 @@ export default function Info() {
   useEffect(() => {
     async function getMonthlyGlobal() {
       const results = await axios.get('http://localhost:8080/MonthlyGlobal')
+      console.log(results.data)
       setMonthlyGlobal(results.data);
     }
     getMonthlyGlobal();
@@ -189,11 +191,13 @@ export default function Info() {
         display: true,
         position: "right",
       },
-      // time: {
+      // x: {
       //   type: "time",
       //   time: {
-      //     unit: "month",
+      //     unit: "year",
       //   },
+      //   min: '1850_1',
+      //   max: '2030_1'
       // },
       
     },
