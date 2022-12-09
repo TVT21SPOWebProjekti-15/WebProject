@@ -112,7 +112,7 @@ export default function V4() {
             },
             title: {
                 display: true,
-                text: "V3",
+                text: "V3 V4",
             },
         },
         scales: {
