@@ -72,4 +72,36 @@ public ResponseEntity<List<Info>> GetReconstruction(){
     return new ResponseEntity<>(info,HttpStatus.OK);
     
 }
+@CrossOrigin (origins = "*")
+@GetMapping (path = "/MaunaLoa")
+public ResponseEntity<List<Info>> GetMaunaLoa(){
+    List<Info> v3 =jdbcTemplate.query("SELECT * FROM maunaloa_co2",new BeanPropertyRowMapper(V3.class));
+
+    return new ResponseEntity<>(v3,HttpStatus.OK);
+    
+}
+@CrossOrigin (origins = "*")
+@GetMapping (path = "/Dss")
+public ResponseEntity<List<Info>> GetDss(){
+    List<Info> v4 =jdbcTemplate.query("select * from antarctic_ice_core_records_dss ORDER BY Year ASC;",new BeanPropertyRowMapper(V4.class));
+
+    return new ResponseEntity<>(v4,HttpStatus.OK);
+    
+}
+@CrossOrigin (origins = "*")
+@GetMapping (path = "/De08")
+public ResponseEntity<List<Info>> Getde08(){
+    List<Info> v4 =jdbcTemplate.query("select * from antarctic_ice_core_records_de08 ORDER BY Year ASC;;",new BeanPropertyRowMapper(V4.class));
+
+    return new ResponseEntity<>(v4,HttpStatus.OK);
+    
+}
+@CrossOrigin (origins = "*")
+@GetMapping (path = "/De082")
+public ResponseEntity<List<Info>> Getde082(){
+    List<Info> v4 =jdbcTemplate.query("select * from antarctic_ice_core_records_de08_2 ORDER BY Year ASC;",new BeanPropertyRowMapper(V4.class));
+
+    return new ResponseEntity<>(v4,HttpStatus.OK);
+    
+}
 }

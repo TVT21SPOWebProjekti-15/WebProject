@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Line } from 'react-chartjs-2';
-import {DateTime} from 'luxon'
+import { DateTime } from 'luxon'
 
 
 
 
 export default function Info() {
 
-
+  const dt = DateTime;
   // const [infot, setInfot] = useState([])
   // const [annualNorthern, setAnnualNorthern] = useState([])
   // const [annualSouthern, setAnnualSouthern] = useState([])
@@ -16,6 +16,7 @@ export default function Info() {
   // const [monthlySouthern, setMonthlySouthern] = useState([])
   const [reconstruction, setReconstruction] = useState([])
   const [monthlyGlobal, setMonthlyGlobal] = useState([])
+
   useEffect(() => {
     async function getMonthlyGlobal() {
       const results = await axios.get('http://localhost:8080/MonthlyGlobal')
@@ -81,15 +82,16 @@ export default function Info() {
 
 
   const data = {
-    labels: (monthlyGlobal, reconstruction).map(y => y.time),
+    //labels: (monthlyGlobal, reconstruction).map(y => y.time),
 
     datasets: [
 
       {
         label: "global monthly",
-        data: monthlyGlobal.map(y => y.anomaly),
+        data: monthlyGlobal,
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
+        pointRadius: 0,
         yAxisID: "anomaly",
         parsing: {
           xAxisKey: "time",
@@ -100,7 +102,8 @@ export default function Info() {
             xAxes: [{
               offset: true
             }]
-          }
+          },
+          
         }
 
       },
@@ -109,6 +112,7 @@ export default function Info() {
       //   data: monthlyNorthern.map(y => y.anomaly),
       //   borderColor: "rgb(255, 99, 132)",
       //   backgroundColor: "rgba(255, 99, 132, 0.5)",
+      //   pointRadius:0,
       //   yAxisID: "anomaly",
       //   parsing: {
       //     xAxisKey: "Time",
@@ -120,6 +124,7 @@ export default function Info() {
       //   data: monthlySouthern.map(y => y.anomaly),
       //   borderColor: "rgb(255, 99, 132)",
       //   backgroundColor: "rgba(255, 99, 132, 0.5)",
+      //   pointRadius:0,
       //   yAxisID: "anomaly",
       //   parsing: {
       //     xAxisKey: "Time",
@@ -131,6 +136,7 @@ export default function Info() {
       //   data: infot.map(y => y.anomaly),
       //   borderColor: "rgb(1, 99, 132)",
       //   backgroundColor: "rgba(1, 99, 132, 0.5)",
+      //   pointRadius:0,
       //   yAxisID: "anomaly",
       //   parsing: {
       //     xAxisKey: "Time",
@@ -142,6 +148,7 @@ export default function Info() {
       //   data: annualNorthern.map(y => y.anomaly),
       //   borderColor: "rgb(255, 99, 132)",
       //   backgroundColor: "rgba(255, 99, 132, 0.5)",
+      //   pointRadius:0,
       //   yAxisID: "anomaly",
       //   parsing: {
       //     xAxisKey: "Time",
@@ -153,6 +160,7 @@ export default function Info() {
       //   data: annualSouthern.map(y => y.anomaly),
       //   borderColor: "rgb(255, 99, 132)",
       //   backgroundColor: "rgba(255, 99, 132, 0.5)",
+      //   pointRadius:0,
       //   yAxisID: "anomaly",
       //   parsing: {
       //     xAxisKey: "Time",
@@ -164,11 +172,13 @@ export default function Info() {
         data: reconstruction.map(y => y.anomaly),
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
+        pointRadius:0,
         yAxisID: "anomaly",
         parsing: {
           xAxisKey: "Time",
           yAxisKey: "anomaly",
         },
+        
       },
 
     ],
@@ -182,7 +192,7 @@ export default function Info() {
       },
       title: {
         display: true,
-        text: "Hieno graafi",
+        text: "V1 V2",
       },
     },
     scales: {
@@ -194,12 +204,11 @@ export default function Info() {
       // x: {
       //   type: "time",
       //   time: {
-      //     unit: "year",
+      //     unit: dt,
       //   },
       //   min: '1850_1',
-      //   max: '2030_1'
       // },
-      
+
     },
   };
 
