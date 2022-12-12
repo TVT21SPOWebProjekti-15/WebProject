@@ -23,6 +23,11 @@ export default function Register() {
       .catch(e => console.log(e.message))
   }
 
+  //test user creation
+  function testUser(){
+    axios.post('http://localhost:8080/testuser')
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     console.log(e.target.username.value);
@@ -46,6 +51,8 @@ export default function Register() {
     }
   };
 
+  testUser()
+  
   return (
     <body className='Registerbody'>
       <div>

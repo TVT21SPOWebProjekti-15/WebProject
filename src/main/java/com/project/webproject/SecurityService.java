@@ -25,7 +25,6 @@ public class SecurityService {
     public User register(String username, String password){
         User u = new User(username, enc.encode(password));
         userRepo.save(u);
-        System.out.println(username + " " + password);
 
         return u;
     }
@@ -36,7 +35,6 @@ public class SecurityService {
         if (u == null || !enc.matches(password, u.getpassword())) {
             return null;
         }
-        System.out.println(u.getName() + " " + u.getpassword());
         Algorithm alg = Algorithm.HMAC256(jwtKey);
 
         return JWT.create().withSubject(u.getName()).sign(alg);
@@ -46,7 +44,6 @@ public class SecurityService {
         User u = userRepo.findById(username).orElse(null);
 
         if (u == null || !enc.matches(password, u.getpassword())) {
-            System.out.println("User not found");
         }
 
         userRepo.delete(u);

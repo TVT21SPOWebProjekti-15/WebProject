@@ -13,9 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 @RestController
 public class SecurityRestApi {
-    
+
+    @Autowired
+    UserRepository userRepo;
+
     @Autowired
     SecurityService service;
+
+    @Autowired
+    MyPasswordEncoder enc;
 
     @PostMapping("register")
     public ResponseEntity<String> register(
@@ -24,6 +30,17 @@ public class SecurityRestApi {
         User u = service.register(username, password);
 
         return new ResponseEntity<>(u.getName(), HttpStatus.OK);
+    }
+
+    @PostMapping("testuser")
+    public User testUser(){
+        if (!userRepo.existsById("Test user")) {
+            User u = service.register("Test User", "123");
+            userRepo.save(u);
+    
+            return u;
+        }
+        return null;
     }
 
     @PostMapping("login")
