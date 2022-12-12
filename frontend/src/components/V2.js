@@ -7,7 +7,7 @@ import "chartjs-adapter-luxon";
 
 
 
-export default function Info() {
+export default function V2() {
 
   const dt = DateTime;
   const [infot, setInfot] = useState([])

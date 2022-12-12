@@ -104,4 +104,20 @@ public ResponseEntity<List<Info>> Getde082(){
     return new ResponseEntity<>(v4,HttpStatus.OK);
     
 }
+@CrossOrigin (origins = "*")
+@GetMapping (path = "/Vostok")
+public ResponseEntity<List<Info>> GetVostok(){
+    List<Info> v5 =jdbcTemplate.query("select * from vostok_co2 ORDER BY mean_age_of_the_air DESC;",new BeanPropertyRowMapper(V5.class));
+
+    return new ResponseEntity<>(v5,HttpStatus.OK);
+    
+}
+@CrossOrigin (origins = "*")
+@GetMapping (path = "/IceCore800k")
+public ResponseEntity<List<Info>> GetIceCore800k(){
+    List<Info> v6 =jdbcTemplate.query("select * from ice_core_800k;",new BeanPropertyRowMapper(V6.class));
+
+    return new ResponseEntity<>(v6,HttpStatus.OK);
+    
+}
 }

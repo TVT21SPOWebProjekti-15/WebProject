@@ -3,18 +3,17 @@ import axios from 'axios'
 import { Line } from 'react-chartjs-2';
 import { DateTime } from 'luxon'
 
-export default function V3() {
+export default function V5() {
 
-  const [maunaLoa, setMaunaLoa] = useState([])
+  const [vostok, setVostok] = useState([])
 
   useEffect(() => {
-    async function getMaunaLoa() {
-      const results = await axios.get('http://localhost:8080/MaunaLoa')
-      //console.log(results.data)
-      //console.log(results.request.year)
-      setMaunaLoa(results.data);
+    async function getVostok() {
+      const results = await axios.get('http://localhost:8080/Vostok')
+      console.log(results.data)
+      setVostok(results.data);
     }
-    getMaunaLoa();
+    getVostok();
 
 
   }, []);
@@ -22,15 +21,15 @@ export default function V3() {
     datasets: [
 
       {
-        label: "Annual C02 measurements",
-        data: maunaLoa,
+        label: "C02 Measurements (years BC)",
+        data: vostok,
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
         pointRadius: 0,
-        //yAxisID: "mean",
+        yAxisID: "co2_concentration",
         parsing: {
-          xAxisKey: "year",
-          yAxisKey: "mean",
+          xAxisKey: "mean_age_of_the_air",
+          yAxisKey: "co2_concentration",
         },
         options: {
           scales: {
@@ -53,7 +52,7 @@ export default function V3() {
       },
       title: {
         display: true,
-        text: "V3",
+        text: "V5",
       },
     },
     scales: {

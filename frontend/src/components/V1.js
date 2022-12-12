@@ -13,12 +13,13 @@ export default function V1() {
             
     datasets: [
       {
-        label: "temp",
+        label: "temp1",
+        key: "T1",
         data: tempData,
         borderColor:  "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
-        yAxisID: "temp",
-        xAxisID: "year",
+        // yAxisID: "temp",
+        // xAxisID: "year",
         parsing: {
           xAxisKey: "year",
           yAxisKey: "temp",
@@ -28,11 +29,12 @@ export default function V1() {
       }, 
       {
         label: "temp2",
+        key: "T2",
         data: tempData2,
         borderColor:  "rgb(53, 162, 1)",
         backgroundColor: "rgba(53, 162, 235, 0.5)",
-        yAxisID: "temp",
-        xAxisID: "year",
+        // yAxisID: "temp",
+        // xAxisID: "year",
         parsing: {
           xAxisKey: "year",
           yAxisKey: "temp",

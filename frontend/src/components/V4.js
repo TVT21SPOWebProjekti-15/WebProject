@@ -8,6 +8,7 @@ export default function V4() {
     const [dss, setDss] = useState([])
     const [de08, setDe08] = useState([])
     const [de082, setDe082] = useState([])
+    const [maunaLoa, setMaunaLoa] = useState([])
 
     useEffect(() => {
         async function getDss() {
@@ -36,6 +37,18 @@ export default function V4() {
         getDe082();
     }, []);
 
+    useEffect(() => {
+        async function getMaunaLoa() {
+          const results = await axios.get('http://localhost:8080/MaunaLoa')
+          //console.log(results.data)
+          //console.log(results.request.year)
+          setMaunaLoa(results.data);
+        }
+        getMaunaLoa();
+    
+    
+      }, []);
+
 
     const data = {
         datasets: [
@@ -43,10 +56,10 @@ export default function V4() {
             {
                 label: "Ice Core DSS Measurements",
                 data: dss,
-                borderColor: "rgb(255, 99, 132)",
-                backgroundColor: "rgba(255, 99, 132, 0.5)",
+                borderColor: "rgb(255, 99, 1)",
+                backgroundColor: "rgba(255, 99, 1, 0.5)",
                 pointRadius: 0,
-                yAxisID: "mean",
+                //yAxisID: "mean",
                 parsing: {
                     xAxisKey: "year",
                     yAxisKey: "mean",
@@ -63,10 +76,10 @@ export default function V4() {
             },
             {label: "Ice Core De08 Measurements",
             data: de08,
-            borderColor: "rgb(255, 99, 132)",
-            backgroundColor: "rgba(255, 99, 132, 0.5)",
+            borderColor: "rgb(255, 1, 132)",
+            backgroundColor: "rgba(255, 1, 132, 0.5)",
             pointRadius: 0,
-            yAxisID: "mean",
+            //yAxisID: "mean",
             parsing: {
                 xAxisKey: "year",
                 yAxisKey: "mean",
@@ -83,10 +96,10 @@ export default function V4() {
             },
             {label: "Ice Core De08_02 Measurements",
             data: de082,
-            borderColor: "rgb(255, 99, 132)",
-            backgroundColor: "rgba(255, 99, 132, 0.5)",
+            borderColor: "rgb(1, 99, 132)",
+            backgroundColor: "rgba(1, 99, 132, 0.5)",
             pointRadius: 0,
-            yAxisID: "mean",
+            //yAxisID: "mean",
             parsing: {
                 xAxisKey: "year",
                 yAxisKey: "mean",
@@ -101,6 +114,27 @@ export default function V4() {
             }
 
             },
+            {
+                label: "Annual C02 measurements",
+                data: maunaLoa,
+                borderColor: "rgb(255, 99, 132)",
+                backgroundColor: "rgba(255, 99, 132, 0.5)",
+                pointRadius: 0,
+                //yAxisID: "mean",
+                parsing: {
+                  xAxisKey: "year",
+                  yAxisKey: "mean",
+                },
+                options: {
+                  scales: {
+                    xAxes: [{
+                      offset: true
+                    }]
+                  },
+        
+                }
+        
+              },
 
         ],
     };
@@ -121,6 +155,14 @@ export default function V4() {
                 display: true,
                 position: "right",
             },
+            x:{
+                type: 'time',
+                time:{
+                  unit:'year',
+                  display:false
+                }
+              } ,
+            
 
         },
     };
