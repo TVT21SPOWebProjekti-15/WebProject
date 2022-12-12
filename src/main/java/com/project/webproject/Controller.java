@@ -115,7 +115,7 @@ public ResponseEntity<List<Info>> GetVostok(){
 @CrossOrigin (origins = "*")
 @GetMapping (path = "/IceCore800k")
 public ResponseEntity<List<Info>> GetIceCore800k(){
-    List<Info> v6 =jdbcTemplate.query("select * from ice_core_800k;",new BeanPropertyRowMapper(V6.class));
+    List<Info> v6 =jdbcTemplate.query("select * from ice_core_800k order by age_gas_calBP asc;",new BeanPropertyRowMapper(V6.class));
 
     return new ResponseEntity<>(v6,HttpStatus.OK);
     

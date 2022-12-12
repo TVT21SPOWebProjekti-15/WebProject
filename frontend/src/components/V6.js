@@ -53,7 +53,7 @@ export default function V6() {
             },
             title: {
                 display: true,
-                text: "V3",
+                text: "V6",
             },
         },
         scales: {
@@ -62,13 +62,13 @@ export default function V6() {
                 display: true,
                 position: "right",
             },
-            x: {
-                type: 'time',
-                time: {
-                    unit: 'year',
-                    display: true
-                }
-            },
+            // x: {
+            //     type: 'time',
+            //     time: {
+            //         unit: 'year',
+            //         display: true
+            //     }
+            // },
 
         },
     };
