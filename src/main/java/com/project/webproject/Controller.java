@@ -120,4 +120,20 @@ public ResponseEntity<List<Info>> GetIceCore800k(){
     return new ResponseEntity<>(v6,HttpStatus.OK);
     
 }
+@CrossOrigin (origins = "*")
+@GetMapping (path = "/GastReconstruction")
+public ResponseEntity<List<Info>> GetGastReconstruction(){
+    List<Info> v72 =jdbcTemplate.query("select * from evolution_gast_reconstruction order by time asc;",new BeanPropertyRowMapper(V72.class));
+
+    return new ResponseEntity<>(v72,HttpStatus.OK);
+    
+}
+@CrossOrigin (origins = "*")
+@GetMapping (path = "/Evolution_Co2")
+public ResponseEntity<List<Info>> GetEvolution_Co2(){
+    List<Info> v7 =jdbcTemplate.query("select * from evolution_c02 order by time asc;",new BeanPropertyRowMapper(V7.class));
+
+    return new ResponseEntity<>(v7,HttpStatus.OK);
+    
+}
 }

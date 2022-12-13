@@ -6,6 +6,8 @@ import V3 from './components/V3';
 import V4 from './components/V4';
 import V5 from './components/V5';
 import V6 from './components/V6';
+import V7 from './components/V7';
+import V8 from './components/V8';
 import Navbar from './components/Navbar';
 import UserView from './components/UserView';
 import Home from './components/Home';
@@ -35,6 +37,8 @@ function App() {
           <Route path='/V4' element={<V4 />} />
           <Route path='/V5' element={<V5 />} />
           <Route path='/V6' element={<V6 />} />
+          <Route path='/V7' element={<V7 />} />
+          <Route path='/V8' element={<V8 />} />
           <Route path='/UserView' element={<UserView />} />
           <Route path='/main' element={<MainSite />} />
           <Route path='/delete' element={<Delete />} />
