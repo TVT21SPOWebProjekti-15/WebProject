@@ -17,20 +17,33 @@ export default function Navbar() {
               <Link className="nav-link" aria-current="page" to="/Home">Home</Link>
             </li>
             <li class="nav-item">
-              <Link className="nav-link" to="/V1">temperature and CO2</Link>
+              <Link className="nav-link" to="/Info">V1</Link>
             </li>
             <li class="nav-item">
-              <Link className="nav-link" to="/V3">CO2 emissions</Link>
+              <Link className="nav-link" to="/V2">V2</Link>
             </li>
             <li class="nav-item">
-              <Link className="nav-link" to="/UserView">User visualization view</Link>
+              <Link className="nav-link" to="/V3">V3</Link>
+            </li>
+            <li class="nav-item">
+              <Link className="nav-link" to="/V4">V4</Link>
+            </li>
+            <li class="nav-item">
+              <Link className="nav-link" to="/V5">V5</Link>
+            </li>
+            <li class="nav-item">
+              <Link className="nav-link" to="/V6">V6</Link>
+            </li>
+            <li class="nav-item">
+              <Link className="nav-link" to="/UserView">UserView</Link>
             </li>
             <li class="nav-item">
               <Link className="nav-link" to="/delete">Delete user</Link>
             </li>
             <li class="nav-item">
-              <Link className="nav-link" to="/Info">Info</Link>
+              <Link className="nav-link" to="/">Log Out</Link>
             </li>
+            
           </ul>
         </div>
       </div>
