@@ -57,6 +57,7 @@ export default function Register() {
     <body className='Registerbody'>
       <div>
         <form className="form" onSubmit={handleSubmit}>
+
           <div>
               <label htmlFor="username">Username</label>
               <input id='usernameInput' type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} />
@@ -68,6 +69,7 @@ export default function Register() {
           <div>
               <label htmlFor="password2">Password</label>
               <input id="password2" type="password" name="password2" />
+
           </div>
           <div className='Registerandlogin'>
             <button className="primary">Register</button>

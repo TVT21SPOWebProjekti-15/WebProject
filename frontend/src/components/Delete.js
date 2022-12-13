@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-import './Delete.css'
 
 export default function Delete() {
 
@@ -57,6 +56,7 @@ export default function Delete() {
     };
 
     return (
+
         <body className="Deletebody">
             <div>
                 <form className="form" onSubmit={handleSubmit}>
@@ -75,5 +75,6 @@ export default function Delete() {
                 </form>
             </div>
         </body>
+
     );
 }
