@@ -3,6 +3,7 @@ Juho Soivio, Teemu Räisänen, Matti Hiltunen, Jussi Lesonen
 
 Tämä on Oulun Ammattikorkeakoulun toisen vuoden opiskelijoiden web-sovellus projekti. Sovelluksessa käyttäjä voi rekisteröityä ja kirjautua sisään web-selaimeen, jossa käyttäjä voi selata ilmastonmuutokseen liittyviä datasettejä graafimuodossa, esimerkiksi lämpötilan muutoksia tuhansien vuosien saatossa (kuva 1).
 
+![graafi](https://user-images.githubusercontent.com/101434481/207577907-206455bf-fcff-44f0-93aa-f7988791104f.png)
 
 Kuva 1. graafi
 
