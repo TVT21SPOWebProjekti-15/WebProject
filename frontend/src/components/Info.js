@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Line } from 'react-chartjs-2';
-import { DateTime } from 'luxon'
 import "chartjs-adapter-luxon";
-
-
-
 
 export default function Info() {
 
-  const dt = DateTime;
   const [infot, setInfot] = useState([])
   const [annualNorthern, setAnnualNorthern] = useState([])
   const [annualSouthern, setAnnualSouthern] = useState([])
@@ -20,7 +15,6 @@ export default function Info() {
   useEffect(() => {
     async function getMonthlyGlobal() {
       const results = await axios.get('http://localhost:8080/MonthlyGlobal')
-      //console.log(results.data)
       setMonthlyGlobal(results.data);
     }
     getMonthlyGlobal();
@@ -38,7 +32,6 @@ export default function Info() {
     async function getMonthlySouthern() {
       const results = await axios.get('http://localhost:8080/MonthlySouthern')
       setMonthlySouthern(results.data);
-      console.log(results.data)
     }
     getMonthlySouthern();
   }, []);
@@ -64,12 +57,9 @@ export default function Info() {
     async function getAnnualSouthern() {
       const results = await axios.get('http://localhost:8080/AnnualSouthern')
       setAnnualSouthern(results.data);
-      console.log(results.data);
     }
     getAnnualSouthern();
   }, []);
-  
-
 
   const data = {
     datasets: [
@@ -80,19 +70,10 @@ export default function Info() {
         borderColor: "rgb(1, 99, 132)",
         backgroundColor: "rgba(1, 99, 132, 0.5)",
         pointRadius: 0,
-        //yAxisID: "anomaly",
         parsing: {
           xAxisKey: "time",
           yAxisKey: "anomaly",
         },
-        // options: {
-        //   scales: {
-        //     xAxes: [{
-        //       offset: true
-        //     }]
-        //   },
-          
-        // }
 
       },
       {
@@ -100,8 +81,7 @@ export default function Info() {
         data: monthlyNorthern,
         borderColor: "rgb(255, 99, 1)",
         backgroundColor: "rgba(255, 99, 1, 0.5)",
-        pointRadius:0,
-        // yAxisID: "anomaly",
+        pointRadius: 0,
         parsing: {
           xAxisKey: "time",
           yAxisKey: "anomaly",
@@ -112,8 +92,7 @@ export default function Info() {
         data: monthlySouthern,
         borderColor: "rgb(255, 1, 132)",
         backgroundColor: "rgba(255, 1, 132, 0.5)",
-        pointRadius:0,
-        // yAxisID: "anomaly",
+        pointRadius: 0,
         parsing: {
           xAxisKey: "time",
           yAxisKey: "anomaly",
@@ -124,8 +103,7 @@ export default function Info() {
         data: infot,
         borderColor: "rgb(50, 99, 132)",
         backgroundColor: "rgba(50, 99, 132, 0.5)",
-        pointRadius:0,
-        // yAxisID: "anomaly",
+        pointRadius: 0,
         parsing: {
           xAxisKey: "time",
           yAxisKey: "anomaly",
@@ -136,8 +114,7 @@ export default function Info() {
         data: annualNorthern,
         borderColor: "rgb(255, 99, 60)",
         backgroundColor: "rgba(255, 99, 60, 0.5)",
-        pointRadius:0,
-        // yAxisID: "anomaly",
+        pointRadius: 0,
         parsing: {
           xAxisKey: "time",
           yAxisKey: "anomaly",
@@ -148,8 +125,7 @@ export default function Info() {
         data: annualSouthern,
         borderColor: "rgb(255, 50, 132)",
         backgroundColor: "rgba(255, 50, 132, 0.5)",
-        pointRadius:0,
-        // yAxisID: "anomaly",
+        pointRadius: 0,
         parsing: {
           xAxisKey: "time",
           yAxisKey: "anomaly",
@@ -176,23 +152,21 @@ export default function Info() {
         display: true,
         position: "right",
       },
-            x:{
+      x: {
         type: 'time',
-        time:{
-          unit:'year',
-          display:false
+        time: {
+          unit: 'year',
+          display: false
         }
       },
 
     },
   };
 
-
-
   return (
     <div>
       <div className="App">
-        <div className="Graph"style={{ width: "600px" }}></div>
+        <div className="Graph" style={{ width: "600px" }}></div>
         <Line options={options} data={data} />
       </div>
       <p>
