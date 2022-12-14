@@ -35,7 +35,7 @@ export default function Login() {
         } else {
             if (access != null) {
                 console.log("Success!")
-                navigate('/main', { replace: true })
+                navigate('/Home', { replace: true })
             }
             else {
                 alert("Invalid credentials: are you sure this user exists?")
@@ -44,7 +44,7 @@ export default function Login() {
     };
 
     return (
-        <body className="Loginbody">
+        <body className="Loginbody" >
             <div>
                 <form className="form" onSubmit={handleSubmit}>
 

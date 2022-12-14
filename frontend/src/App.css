@@ -1,1 +1,24 @@
+.chart{
+  text-align: center;
+}
 
+.navbar {
+  margin-bottom: 0!important;
+}
+
+
+/* @media screen and (min-width: 600px){
+
+} */
+
+/* .chart{
+  overflow-wrap: auto;
+} */
+
+ /* div {
+   max-width: 100% !important;
+}   */
+
+.Graph{
+  max-width: 80px;
+}
