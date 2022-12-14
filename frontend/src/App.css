@@ -15,6 +15,10 @@
   overflow-wrap: auto;
 } */
 
- div {
+ /* div {
    max-width: 100% !important;
-}  
+}   */
+
+.Graph{
+  max-width: 80px;
+}

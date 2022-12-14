@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Line } from 'react-chartjs-2';
-import { DateTime } from 'luxon'
 
 export default function V8() {
 
@@ -10,8 +9,6 @@ export default function V8() {
     useEffect(() => {
         async function getEvolution_Co2() {
             const results = await axios.get('http://localhost:8080/Evolution_Co2')
-            console.log(results.data)
-            //console.log(results.request.year)
             setEvolution_Co2(results.data);
         }
         getEvolution_Co2();
@@ -28,7 +25,6 @@ export default function V8() {
             borderColor: "rgb(255, 99, 132)",
             backgroundColor: "rgba(255, 99, 132, 0.5)",
             pointRadius: 1,
-            //yAxisID: "co2_ppm",
             parsing: {
                 xAxisKey: "time",
                 yAxisKey: "co2_ppm",    
@@ -54,7 +50,7 @@ export default function V8() {
       },
       title: {
         display: true,
-        text: "V3",
+        text: "V8",
       },
     },
     scales: {
@@ -72,7 +68,7 @@ export default function V8() {
       <div className="App">
         <div style={{ width: "600px" }}></div>
         <Line options={options} data={data} />
-
+        <p>Work in progress...</p>
       </div>
 
 

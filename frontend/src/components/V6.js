@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Line } from 'react-chartjs-2';
-import { DateTime } from 'luxon'
 
 export default function V6() {
     const [iceCore800k, setIceCore800k] = useState([])
@@ -9,8 +8,6 @@ export default function V6() {
     useEffect(() => {
         async function getIceCore800k() {
             const results = await axios.get('http://localhost:8080/IceCore800k')
-            console.log(results.data)
-            //console.log(results.request.year)
             setIceCore800k(results.data);
         }
         getIceCore800k();
@@ -27,7 +24,6 @@ export default function V6() {
                 borderColor: "rgb(255, 99, 132)",
                 backgroundColor: "rgba(255, 99, 132, 0.5)",
                 pointRadius: 0,
-                //yAxisID: "mean",
                 parsing: {
                     xAxisKey: "age_gas_calBP",
                     yAxisKey: "co2_ppm",
@@ -62,13 +58,6 @@ export default function V6() {
                 display: true,
                 position: "right",
             },
-            // x: {
-            //     type: 'time',
-            //     time: {
-            //         unit: 'year',
-            //         display: true
-            //     }
-            // },
 
         },
     };
@@ -78,7 +67,15 @@ export default function V6() {
             <div className="App">
                 <div style={{ width: "600px" }}></div>
                 <Line options={options} data={data} />
-
+                <p>
+                    <a href='https://www.ncei.noaa.gov/pub/data/paleo/icecore/antarctica/antarctica2015co2composite.txt' target="_blank">Link</a> to the datasource
+                </p>
+                <p>
+                    <a href='https://www.ncei.noaa.gov/access/paleo-search/study/17975' target="_blank">Link</a> to the data description
+                </p>
+                <p>
+                    The European Project for Antarctic Ice Coring The last 800,000 years of atmospheric CO2 concentrations can be reconstructed thanks to the Dome C (EDC) ice core.
+                </p>
             </div>
 
 

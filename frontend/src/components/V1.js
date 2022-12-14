@@ -9,8 +9,6 @@ import "chartjs-adapter-luxon";
 export default function V1() {
 
   const data = {
-    //labels: (tempData, tempData2).map(y=> y.year),
-
     datasets: [
       {
         label: "temp",
@@ -18,8 +16,7 @@ export default function V1() {
         data: tempData,
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
-         yAxisID: "temp",
-        // xAxisID: "year",
+        yAxisID: "temp",
         parsing: {
           yAxisKey: "temp",
           xAxisKey: "year"
@@ -33,8 +30,7 @@ export default function V1() {
         data: tempData2,
         borderColor: "rgb(53, 162, 1)",
         backgroundColor: "rgba(53, 162, 235, 0.5)",
-         yAxisID: "tamp",
-        // xAxisID: "year",
+        yAxisID: "tamp",
         parsing: {
           yAxisKey: "tamp",
           xAxisKey: "year"
@@ -47,7 +43,6 @@ export default function V1() {
 
   const options = {
     responsive: true,
-    // maintainAspectRatio: true,
     plugins: {
       legend: {
         position: "top",
@@ -58,15 +53,7 @@ export default function V1() {
       },
     },
     scales: {
-      // temp: {
-      //   type: "linear",
-      //   display: true,
-      //   position: "right",
-      //   beginAtZero: true,
-      //   xAxes:[{
-      //     type:'time',
-      //   }]   
-      // }, 
+
       x: {
         type: 'time',
         time: {
@@ -75,24 +62,24 @@ export default function V1() {
         }
       },
       temp: {
-        
+
         type: 'linear',
         position: 'left',
-        title:{
-        display: true,
-        text:"temp"
+        title: {
+          display: true,
+          text: "temp"
         }
       },
       tamp: {
-        
+
         type: 'linear',
         position: 'right',
-        title:{
-        display: true,
-        text:"tamp"
+        title: {
+          display: true,
+          text: "tamp"
         }
       }
-      
+
     },
 
   };

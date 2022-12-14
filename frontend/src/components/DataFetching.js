@@ -7,18 +7,7 @@ import {Line} from "react-chartjs-2";
 function DataFetching() {
 
 
-    // const [Data1,setData1] = useState([])
-    // useEffect(()=>{
-    //     axios
-    //     .get('http://localhost:3306/anomalies_annual_global')
-    //     .then(res =>{
-    //         console.log(res)
-    //         setData1(res.Data)
-    //     })
-    //     .catch(err =>{
-    //         console.log(err)
-    //     })
-    // })
+    // This is purely for testing purposes.
     const data = {
         labels: (tempData, tempData2).map(y=> y.time),
                 

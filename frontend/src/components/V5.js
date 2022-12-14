@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Line } from 'react-chartjs-2';
-import { DateTime } from 'luxon'
 
 export default function V5() {
 
@@ -10,7 +9,6 @@ export default function V5() {
   useEffect(() => {
     async function getVostok() {
       const results = await axios.get('http://localhost:8080/Vostok')
-      console.log(results.data)
       setVostok(results.data);
     }
     getVostok();
@@ -70,7 +68,16 @@ export default function V5() {
       <div className="App">
         <div style={{ width: "600px" }}></div>
         <Line options={options} data={data} />
-
+        <p>
+          <a href='https://cdiac.ess-dive.lbl.gov/ftp/trends/co2/vostok.icecore.co2' target="_blank">Link</a> to the datasource
+        </p>
+        <p>
+          <a href='https://cdiac.ess-dive.lbl.gov/trends/co2/vostok.html' target="_blank">Link</a> to the data description
+        </p>
+        <p>
+          This line chart shows CO2 concentration in the atmosphere from the period of 400 000 years. CO2 measurements were taken
+          from the ice core in East Antractica at the vostok station.
+        </p>
       </div>
 
 

@@ -15,7 +15,6 @@ export default function Info() {
   const [annualSouthern, setAnnualSouthern] = useState([])
   const [monthlyNorthern, setMonthlyNorthern] = useState([])
   const [monthlySouthern, setMonthlySouthern] = useState([])
-  const [reconstruction, setReconstruction] = useState([])
   const [monthlyGlobal, setMonthlyGlobal] = useState([])
 
   useEffect(() => {
@@ -70,23 +69,9 @@ export default function Info() {
     getAnnualSouthern();
   }, []);
   
-  useEffect(() => {
-    async function getReconstruction() {
-      const results = await axios.get('http://localhost:8080/Reconstruction')
-      setReconstruction(results.data);
-      //console.log(results.data)
-    }
-    getReconstruction();
-  }, []);
-
-
-
-
 
 
   const data = {
-    //labels: (monthlyGlobal, reconstruction).map(y => y.time),
-
     datasets: [
 
       {
@@ -170,21 +155,6 @@ export default function Info() {
           yAxisKey: "anomaly",
         },
       },
-      {
-        label: "2000 year temperatures",
-        data: reconstruction,
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
-        pointRadius:0,
-      
-        //yAxisID: "anomaly",
-        parsing: {
-          xAxisKey: "time",
-          yAxisKey: "anomaly",
-        },
-        
-      },
-
     ],
   };
 
@@ -197,7 +167,7 @@ export default function Info() {
       },
       title: {
         display: true,
-        text: "V1 V2",
+        text: "V1",
       },
     },
     scales: {
@@ -222,23 +192,12 @@ export default function Info() {
   return (
     <div>
       <div className="App">
-        <div style={{ width: "600px" }}></div>
+        <div className="Graph"style={{ width: "600px" }}></div>
         <Line options={options} data={data} />
-
       </div>
-      {/* <ul>
-        {infot.map(info =>{
-          return <tr>
-            <td>
-              {info.year} /
-              {info.anomaly}/
-              {info.upper_confidence_limit}/
-              {info.lower_confidence_limit}
-            </td>
-          </tr>
-        })}
-      </ul> */}
-
+      <p>
+        <a href='https://www.metoffice.gov.uk/hadobs/hadcrut5/' target="_blank">Link</a> to the datasource
+      </p>
     </div>
 
 

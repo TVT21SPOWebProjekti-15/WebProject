@@ -44,7 +44,7 @@ export default function Login() {
     };
 
     return (
-        <body className="Loginbody">
+        <body className="Loginbody" >
             <div>
                 <form className="form" onSubmit={handleSubmit}>
                     <div className="input-group">

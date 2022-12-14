@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Line } from 'react-chartjs-2';
-import { DateTime } from 'luxon'
 
 export default function V3() {
 
@@ -10,8 +9,6 @@ export default function V3() {
   useEffect(() => {
     async function getMaunaLoa() {
       const results = await axios.get('http://localhost:8080/MaunaLoa')
-      //console.log(results.data)
-      //console.log(results.request.year)
       setMaunaLoa(results.data);
     }
     getMaunaLoa();
@@ -27,7 +24,6 @@ export default function V3() {
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
         pointRadius: 0,
-        //yAxisID: "mean",
         parsing: {
           xAxisKey: "year",
           yAxisKey: "mean",
@@ -71,7 +67,16 @@ export default function V3() {
       <div className="App">
         <div style={{ width: "600px" }}></div>
         <Line options={options} data={data} />
-
+        <p>
+          <a href='https://gml.noaa.gov/ccgg/trends/' target="_blank">Link</a> to the datasource
+        </p>
+        <p>
+          <a href='https://gml.noaa.gov/ccgg/about/co2_measurements.html' target="_blank">Link</a> to the data measurement description
+        </p>
+        <p>
+          The graphs show monthly mean carbon dioxide measured at Mauna Loa Observatory, Hawaii. The carbon dioxide data on Mauna Loa
+          constitute the longest record of direct measurements of CO2 in the atmosphere.
+        </p>
       </div>
 
 
