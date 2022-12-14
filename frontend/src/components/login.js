@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-import "./login.css"
 
 export default function Login() {
 
@@ -44,23 +43,19 @@ export default function Login() {
     };
 
     return (
-        <body className="Loginbody">
-            <div>
-                <form className="form" onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="username">Username</label>
-                        <input type="text" name="username" value={username} onChange={e => setUsername(e.target.value)} />
-                    </div>
-                    <div>
-                        <label htmlFor="password">Password</label>
-                        <input type="password" name="password" value={password} onChange={e => setPassword(e.target.value)} />
-                    </div>
-                    <div>
-                        <button className="primary">Login</button>
-                        <Link className="link" to='/register'>Register</Link>
-                    </div>
-                </form>
-            </div>
-        </body>
+        <div className="Login">
+            <form className="form" onSubmit={handleSubmit}>
+                <div className="input-group">
+                    <label htmlFor="username">Username</label>
+                    <input type="text" name="username" value={username} onChange={e => setUsername(e.target.value)} />
+                </div>
+                <div className="input-group">
+                    <label htmlFor="password">Password</label>
+                    <input type="password" name="password" value={password} onChange={e => setPassword(e.target.value)} />
+                </div>
+                <button className="primary">Login</button>
+            </form>
+            <Link className="link" to='/register'>Register</Link>
+        </div>
     );
 }
