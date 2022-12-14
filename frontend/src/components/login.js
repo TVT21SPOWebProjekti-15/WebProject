@@ -47,11 +47,13 @@ export default function Login() {
         <body className="Loginbody" >
             <div>
                 <form className="form" onSubmit={handleSubmit}>
-                    <div className="input-group">
+
+                    <div>
                         <label htmlFor="username">Username</label>
                         <input type="text" name="username" value={username} onChange={e => setUsername(e.target.value)} />
                     </div>
-                    <div className="input-group">
+                    <div>
+
                         <label htmlFor="password">Password</label>
                         <input type="password" name="password" value={password} onChange={e => setPassword(e.target.value)} />
                     </div>
